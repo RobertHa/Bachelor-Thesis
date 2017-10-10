@@ -22,6 +22,7 @@ quota 5M
 		config \n
 arg1 z
 """
+"""
 def want(name):
 	return {
 	'taskset': False,
@@ -39,7 +40,7 @@ def want(name):
 	'pkg':False,
 	'config':False,
 	'arg1':True
-	}[name]
+	}[name] 
 dic = {}
 root = ET.parse(sys.argv[1]).getroot()
 c = []
@@ -52,30 +53,10 @@ print(dic["1000000"])
 with open('test.pickle','wb') as f:
 	pickle.dump(dic, f, -1)
 
-
-print('this has been pickled')
+"""
+print('this has been unpickled')
 
 with open('test.pickle', 'rb') as f:
 	other = pickle.load(f)
 
-print(other["1000000"])
-
-"""
-want:
-		don't want:
-		taskset \n
-		periodictask \n
-id z
-executiontime z
-criticaltime z
-		ucfirmrt 'none'
-		uawmean \n
-size z
-priority z
-period z
-offset z
-quota 5M
-		pkg 'name'
-		config \n
-arg1 z
-"""
+print(list(other.keys()))
