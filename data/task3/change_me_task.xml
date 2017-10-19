@@ -10,10 +10,10 @@
     <priority>32768</priority>
     <period>0</period>
     <offset>0</offset>
-    <quota>changeme_quota</quota>
+    <quota>5M</quota>
     <pkg>changeme_bin</pkg>
     <config>
-      <arg1>changeme_arg</arg1>
+      <arg1>50000</arg1>
     </config>
   </periodictask>
 </taskset>

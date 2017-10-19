@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 import pickle
 folder = './task'
 dic = {}
-files_per_task = 1
+files_per_task = 6
 resfile = ET.parse('resroot.xml')
 filename1 = ('hey','.xml')
 filename2 = ('namaste','.xml')

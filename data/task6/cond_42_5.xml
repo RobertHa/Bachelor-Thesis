@@ -2,7 +2,7 @@
   <periodictask>
     <id>6</id>
     <executiontime>999999999999</executiontime>
-    <criticaltime>100</criticaltime>
+    <criticaltime>5000</criticaltime>
     <ucfirmrt/>
     <uawmean>
       <size>10</size>
@@ -13,7 +13,7 @@
     <quota>5M</quota>
     <pkg>cond_42</pkg>
     <config>
-      <arg1>10</arg1>
+      <arg1>150000000</arg1>
     </config>
   </periodictask>
 </taskset>

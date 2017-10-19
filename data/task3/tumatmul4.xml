@@ -2,7 +2,7 @@
   <periodictask>
     <id>3</id>
     <executiontime>999999999999</executiontime>
-    <criticaltime>1000</criticaltime>
+    <criticaltime>3000</criticaltime>
     <ucfirmrt/>
     <uawmean>
       <size>10</size>
@@ -13,7 +13,7 @@
     <quota>5M</quota>
     <pkg>tumatmul</pkg>
     <config>
-      <arg1>41000</arg1>
+      <arg1>50000</arg1>
     </config>
   </periodictask>
 </taskset>

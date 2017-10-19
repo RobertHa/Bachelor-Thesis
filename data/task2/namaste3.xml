@@ -2,7 +2,7 @@
   <periodictask>
     <id>2</id>
     <executiontime>999999999999</executiontime>
-    <criticaltime>80</criticaltime>
+    <criticaltime>4800</criticaltime>
     <ucfirmrt/>
     <uawmean>
       <size>10</size>

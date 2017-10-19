@@ -13,7 +13,7 @@
     <quota>changeme_quota</quota>
     <pkg>changeme_bin</pkg>
     <config>
-      <arg1>changeme_arg</arg1>
+      <arg1>0</arg1>
     </config>
   </periodictask>
 </taskset>
