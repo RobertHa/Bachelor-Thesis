@@ -20,7 +20,7 @@ class ANN:
 		#convert input to Variable
 		in_tensor = torch.autograd.Variable(torch.FloatTensor(in_vector))
 		out = self.model(in_tensor)
-		if (out >= (1 - self.confidence)):
+		if (out.data[0] >= (1 - self.confidence)):#out.data[0] is necessary to access the value stored in the tensor variable
 			return True
 		return False
 
