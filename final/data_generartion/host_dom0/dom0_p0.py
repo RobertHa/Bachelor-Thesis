@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import sys
 from dom0_client import *
-from network import *
+from ANN import *
 import time
 
 
