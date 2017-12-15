@@ -22,19 +22,15 @@ success = 0
 suc_sets = 0
 pos_suc_sets = 0
 suc_set_flag = False
-cou = 0
 for i in validate:
-	cou = cou + 1
 	x = i[0]
 	if (i[1].data[0]==1):
 		suc_set_flag = True
 		suc_sets = suc_sets + 1
 	y = i[1]
 	out = model(x)
-	loss = F.mse_loss(out,y)
-	#if cou%100 == 0:
-		#print(loss.data[0])
-	if loss.data[0] <= confidence:
+	
+	if abs(y.data[0]-out.data[0])<=confidence:
 		if suc_set_flag:
 			pos_suc_sets = pos_suc_sets +1
 			suc_set_flag = False

@@ -22,43 +22,26 @@ with open('data.pickle','rb') as p:
 training = data[0]
 
 
-#########################################
-"""
-
-class FFN(nn.Module):
-
-	def __init__(self,input_size,hidden_size_1, hidden_size_2, num_classes):
-		super().__init__()
-		self.h1 = nn.Linear(input_size,hidden_size_1)
-		self.h2 = nn.Linear(hidden_size_1, hidden_size_2)
-		self.h3 = nn.Linear(hidden_size_2,num_classes)
-
-	def forward(self, x):
-		x = self.h1(x)
-		x = F.leaky_relu(x)
-		x = self.h2(x)
-		x = F.leaky_relu(x)
-		x = self.h3(x)
-		x = F.sigmoid(x)
-		return x
-"""
-
-#########################################
-
 model = FFN(input_size = input_dimension, hidden_size_1 = hidden_size_1, hidden_size_2 = hidden_size_2, num_classes = num_classes)
 opt = optim.Adam(params = model.parameters(),lr = learning_rate)
 
+lr_factor = 10
 
-for epoch in range(len(training)):
-	###load new batch
-	x = training[epoch][0]
-	y = training[epoch][1]
-	out = model(x)
-	loss = F.mse_loss(out,y)
-	print('error of',loss.data[0])
-	model.zero_grad()
-	loss.backward()
-	opt.step()
+for epoch in range(int(sys.argv[4])):
+	if epoch%100 == 0:
+		learning_rate = learning_rate/100
+		opt = optim.Adam(params = model.parameters(),lr = learning_rate)
+	
+	for minibatch in range(len(training)):
+		x = training[minibatch][0]
+		y = training[minibatch][1]
+		out = model(x)
+		loss = F.mse_loss(out,y)
+		if epoch%10 == 0 and minibatch%50 ==0:
+			print(epoch, 'epoch |err: ',loss.data[0])
+		model.zero_grad()
+		loss.backward()
+		opt.step()
 
 
 torch.save(model, 'trained_model')
